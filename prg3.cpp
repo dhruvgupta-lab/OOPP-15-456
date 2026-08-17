@@ -1,56 +1,40 @@
-#include<iostream>
-
+#include <iostream>
 using namespace std;
 
-class point
+// Inline Function
+inline int square(int x)
 {
-    int x,y;
+    return x * x;
+}
 
-    public:
-    //point() : x{0},y{0} {
-      //  cout<<"default constructor";
-    //}
-    point(int p=0,int q=0):x{p},y{q} {
-        cout<<"parametarized constructor"<<endl;
-    }
-    point add(point p,point q)
-    {
-        cout<<"after add"<<endl;
-        point r;
-        r.x=p.x+q.x;
-        r.y=p.y+q.y;
-        return r;
+// Default Argument Function
+int add(int a, int b = 10)
+{
+    return a + b;
+}
 
-        
-    }
-    point add(point q)
-    {
-       // point r;
-        //r.x=x+q.x;
-        //r.y=y+q.y;
-        //return r;
-        return point(x+q.x,y+q.y);
+// Function Overloading
+int multiply(int a, int b)
+{
+    return a * b;
+}
 
-
-    }    
-    void show()
-    {
-        cout<<x<<","<<y<<endl;
-    }
-};
-
+double multiply(double a, double b)
+{
+    return a * b;
+}
 
 int main()
 {
-    point r;
-    point p(10,20),q(20,50);
-    //p.show();
-    //q.show();
-    //r=p.add(q);
-    //r.show();
-    //r.add(p,q);
-    //r.show();
-    
+    cout << "Square of 5 = " << square(5) << endl;
+
+    cout << "Addition (5) = " << add(5) << endl;
+
+    cout << "Addition (5,20) = " << add(5,20) << endl;
+
+    cout << "Multiply Integers = " << multiply(5,4) << endl;
+
+    cout << "Multiply Doubles = " << multiply(5.5,4.2) << endl;
 
     return 0;
 }
